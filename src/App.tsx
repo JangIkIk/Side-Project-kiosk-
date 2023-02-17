@@ -1,12 +1,14 @@
-import './App.css';
-
+import "./App.css";
+import BuyerHome from "./page/BuyerHome";
+import BuyerSelect from "./page/BuyerSelect";
 
 function App() {
-    return(
-        <div>
-            <h1>{"App"}</h1>
-        </div>
-    )
+  return (
+    <div className="App">
+        <BuyerHome />
+        <BuyerSelect/>
+    </div>
+  );
 }
 
 export default App;
