@@ -19,7 +19,7 @@ interface Props {
     padding?: string;
 }
 
-const CommonBtn = ({text, width, radius, padding} : Props) : ReactElement=>{
+export const CommonBtn = ({text, width, radius, padding} : Props) : ReactElement=>{
     const styles = {
         width,radius,padding
     }
@@ -32,4 +32,3 @@ CommonBtn.defaultProps={
     text: "버튼",
 }
 
-export default CommonBtn;
