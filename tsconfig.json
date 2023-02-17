@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+     "target": "es2017", 
+     "module": "commonjs",
+     "esModuleInterop": true,
+     "strictNullChecks": true,
+     "jsx": "react-jsx",
+     "typeRoots": ["./node_modules/@types", "@types"]
+    },
+    "include": [
+        "./src"
+    ]
+
+}
