@@ -28,7 +28,7 @@ const Section = styled.section`
   gap: 10px;
 `;
 
-function SellerHome() {
+function SellerLogin() {
   const [userId, setUserId] = useState("");
   const [userPassword, setUserPassword] = useState("");
   return (
@@ -56,4 +56,4 @@ function SellerHome() {
   );
 }
 
-export default SellerHome;
+export default SellerLogin;
