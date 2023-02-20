@@ -1,14 +1,22 @@
 import styled from "styled-components";
-import { ReactElement } from "react";
 
-const Layout = styled.div`
-width:100%;
+interface Props {
+  text?: string;
+  state?: string | number;
+  onChange?: (value: React.ChangeEvent<HTMLInputElement>) => void;
+  holder?: string;
+  font? : string;
+  label?: boolean;
+}
+
+const Layout = styled.div<Props>`
+  width:100%;
   display: flex;
   align-items: center;
   gap: 5px;
 
-  label {
-    font-size: ${props => props.font ?? props.font};
+  label{
+    font-size: ${ props => props.font ?? "2rem"};
     width:13rem;
   }
 
@@ -21,41 +29,25 @@ width:100%;
   }
 `;
 
-interface Props {
-  text?: string;
-  state?: string | number;
-  setState: React.Dispatch<React.SetStateAction<string | number>>;
-  holder?: string;
-  font? : string;
-  label?: boolean;
-}
-
 export const CommonInput = ({
   text,
   holder,
   state,
-  setState,
+  onChange,
   font,
-  label,
-}: Props): ReactElement => {
+  label = true
+}: Props): JSX.Element => {
     const styles ={font}
   return (
     <Layout {...styles}>
-        {label ? <label htmlFor="user">{text}</label> : null}
+        {label ? <label htmlFor="user">{text ?? "사용자입력"}</label> : null}
         <input
           id="user"
           type={typeof state === "number" ? "number" : "text"}
           defaultValue={state}
-          onChange={(e) => setState(e.target.value)}
-          placeholder={holder}
+          onChange={onChange}
+          placeholder={holder ?? "사용자입력"}
         />
     </Layout>
   );
-};
-
-CommonInput.defaultProps = {
-  text: "사용할 이름",
-  holder: "",
-  font:"2rem",
-  label: true,
 };

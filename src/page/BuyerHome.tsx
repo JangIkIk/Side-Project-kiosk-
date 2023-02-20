@@ -1,4 +1,4 @@
-import CommonBtn from "../component/CommonBtn";
+import { CommonBtn } from "../component/CommonBtn";
 import styled from "styled-components";
 import img from "../asset/겨울.gif";
 
