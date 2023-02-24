@@ -17,11 +17,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <BuyerHome /> */}
-        {/* buyer/home/ -> 구매자홈(매장/포장)*/}
-
-        {/* <BuyerSelect/> */}
-        {/* buyer/select ->구매자 메뉴선택 */}
+        <Routes>
+          <Route path="/" element={<BuyerHome/>}/>
+          <Route path="/select" element={<BuyerSelect/>}/>
+        </Routes>
 
         {/* <SellerLogin/> */}
         {/* seller/login -> 판매자 로그인페이지*/}
@@ -37,13 +36,11 @@ function App() {
         {/* --child-- seller/home/complete */}
         {/* --child-- <ProductCancellation/>*/}
         {/* --child-- seller/home/cancellation */}
-        
-
-        <SellerKioskSetting/>
+        {/* <SellerKioskSetting/> */}
         {/* seller/kiosksetting -> 판매자 키오스크 설정 */}
-        <ProductCD/>
+        {/* <ProductCD/> */}
         {/* seller/kiosksetting/ad -> 판매자 키오스크 추가/삭제 */}
-        <ProductSort/>
+        {/* <ProductSort/> */}
         {/* seller/kiosksetting/sort -> 판매자 키오스크 정렬 */}
 
       </BrowserRouter>
