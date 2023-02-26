@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { CommonBtn } from "./CommonBtn";
 
 interface Props {
-  data: any;
+  data: Object[];
 }
 
 const Layout = styled.div`
@@ -29,7 +29,7 @@ export const CarteGory = ({ data }: Props) => {
   return (
     <Layout>
       <div className="cartegory-box">
-        {data.map((el : any) => {
+        {data.map((el : {id: number , title:string}) => {
           return (
             <div className="box-items" key={el.id}>
               <CommonBtn 
