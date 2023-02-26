@@ -1,48 +1,40 @@
 import styled from "styled-components"
+import { CartegorySlide } from "../component/CartegorySlide"
+import { ItemSlide } from "../component/ItemSlide"
 
 const Layout = styled.div`
     min-width: 900px;
-    height: 100%;
     display:flex;
     flex-direction: column;
+    background-color:#ffa6b7;
 `
 const Header = styled.header`
-    height: 200px;
-    background-color:red;
     display:flex;
-    justify-content: space-around;
+    padding: 10px;
     flex-direction: column;
-    align-items: center;
-
     .buyer-title{
-        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
         font-size: 3rem;
     }
     .buyer-category{
-        border: 1px solid black;
+        flex:1;
     }
 `
 const Main = styled.main`
     flex:1;
-    background-color:blue;
     font-size: 2rem;
     padding: 10px;
     display:flex;
-    flex-direction:column;
-    gap:10px;
 
     .buyer-select-list{
         color:white;
         flex:1;
-        border: 1px solid black;
     }
 `
 const Footer = styled.footer`
     font-size: 2rem;
-    height: 300px;
-    background-color:green;
     display:flex;
-
     .buyer-item-list{
         flex:2;
         border: 1px solid black;
@@ -53,20 +45,20 @@ const Footer = styled.footer`
         border: 1px solid black;
     }
 `
-
 function BuyerSelect(){
+
     return(
         <Layout>
             <Header>
                 <h1 className="buyer-title">키오스크 제목</h1>
                 <section className="buyer-category">
-                    <div>슬라이드</div>
+                    <CartegorySlide/>
                 </section>
             </Header>
             <Main>
-                <div className="buyer-select-list">이미지라인</div>    
-                <div className="buyer-select-list">이미지라인</div>    
-                <div className="buyer-select-list">이미지라인</div>    
+                <div className="buyer-select-list">
+                    <ItemSlide/>
+                </div>     
             </Main>
             <Footer>
                 <div className="buyer-item-list">리스트창</div>

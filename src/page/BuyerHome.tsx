@@ -18,7 +18,7 @@ const Layout = styled.main`
     position: absolute;
   }
 
-  img {
+  & > img {
     width: 100%;
     height: 100%;
     position: absolute;
