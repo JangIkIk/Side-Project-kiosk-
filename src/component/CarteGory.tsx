@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { CommonBtn } from "./CommonBtn";
+import { State } from "./CartegorySlide"
 
-interface Props {
-  data: Object[];
+interface CarteGoryProps {
+  data: State[];
 }
 
 const Layout = styled.div`
@@ -25,15 +26,15 @@ const Layout = styled.div`
   }
 `;
 
-export const CarteGory = ({ data }: Props) => {
+export const CarteGory = ({ data }: CarteGoryProps) => {
   return (
     <Layout>
       <div className="cartegory-box">
-        {data.map((el : {id: number , title:string}) => {
+        {data.map( el => {
           return (
-            <div className="box-items" key={el.id}>
+            <div className="box-items" key={el.menuId}>
               <CommonBtn 
-              text={el.title}
+              text={el.menuTitle}
               background={"transparent"}
               font={1.5}
                />

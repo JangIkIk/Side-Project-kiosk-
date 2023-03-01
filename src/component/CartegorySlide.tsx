@@ -3,6 +3,13 @@ import styled from "styled-components";
 import axios from "axios";
 import { CarteGory } from "./CarteGory";
 
+
+export type State = { menuId : number; menuTitle : string };
+
+interface ChunkProps {
+    (data : State[], size: number): State[][];
+}
+
 const Layout = styled.div<{ page : number | undefined }>`
     height:100%;
     display: flex;
@@ -35,24 +42,24 @@ const Layout = styled.div<{ page : number | undefined }>`
 
     
 `
-function chunk(data:object[], size:number): any {
-    let arr:object[] = [];
 
+const chunk: ChunkProps = (data, size) => {
+    let arr: State[][] = [];
+    
     for(let i = 0 ; i < data.length ; i += size){
-        arr.push(data.slice(i, i + size))
+            arr.push(data.slice(i, i + size))
     }
     return arr;
-  }
-
+};
 
 export const CartegorySlide = () => {
-    const [list, setList] = React.useState([]);
+    const [list, setList] = React.useState<State[][]>([]);
     const [page, setPage] = React.useState(0);
     const styles = {page};
 
     React.useEffect(()=>{
-        axios.get(`http://localhost:4000/gartegory`)
-        .then(res => setList(chunk(res.data,10)))
+        axios.get(`http://localhost:4000/menu`)
+        .then(res => setList(chunk(res.data, 10)))
     },[])
 
     const changeList = (event:React.MouseEvent<HTMLButtonElement>) : void=>{
